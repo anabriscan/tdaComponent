@@ -1,0 +1,55 @@
+<div class="dialog-header">
+  <h1 mat-dialog-title>Medfilm</h1>
+  <div class="close-button-container">
+    <button mat-raised-button [mat-dialog-close]="true">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div matDialogContent>
+  <table class="table">
+    <tr>
+      <th>Date</th>
+      <th>Price</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateChange)="getSelectedDate($event);"
+                 required>
+
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field appearance="standard">
+          <input matInput type="number" placeholder="..." [(ngModel)]="price" required>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <mat-select (selectionChange)="getSelectedOption($event)">
+            <mat-option value="Active">Active</mat-option>
+            <mat-option value="Inactive">Inactive</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td>
+        <button mat-raised-button class="add-button" (click)="addPrice()"> Add</button>
+      </td>
+    </tr>
+    <tr *ngFor="let data of mockData">
+      <td>{{data.date}}</td>
+      <td>{{data.price}}</td>
+      <td>{{data.status}}</td>
+      <td>
+        <button mat-raised-button class="delete-button" (click)="deletePrice(data)"> x</button>
+      </td>
+    </tr>
+  </table>
+
+</div>

@@ -1,0 +1,36 @@
+::ng-deep.mat-dialog-container{
+  height: 500px;
+  position: relative;
+  z-index: 1;
+}
+
+/*header*/
+.dialog-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 40px;
+
+}
+
+.close-button-container button{
+  min-width: 1%;
+}
+
+/*content*/
+.table th {
+    color: #9B9B9B;
+}
+
+.table td{
+  vertical-align: middle;
+}
+
+.add-button {
+  right: 1%;
+  padding: 0;
+}
+
+.delete-button {
+  right: 1%;
+}
